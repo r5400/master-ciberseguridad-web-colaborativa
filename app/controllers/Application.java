@@ -50,10 +50,12 @@ public class Application extends Controller {
     }
 
 
-    public static void setMark(String student) {
-        User u = User.loadUser(student);
-        render(u);
-    }
+public static void setMark(String student) {
+    checkTeacher();
+
+    User u = User.loadUser(student);
+    render("Application/setMark.html", u);
+}
 
     public static void doSetMark(String student, Integer mark) {
         User u = User.loadUser(student);
